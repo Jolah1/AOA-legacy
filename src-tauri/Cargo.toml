@@ -1,0 +1,45 @@
+[package]
+name = "aoa-legacy"
+version = "0.1.0"
+description = "AOA Legacy Concepts — desktop app backend"
+authors = ["AOA Legacy Concepts"]
+edition = "2021"
+rust-version = "1.77"
+
+[lib]
+name = "aoa_legacy_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "1"
+
+# Email
+lettre = { version = "0.11", default-features = false, features = [
+    "smtp-transport",
+    "rustls-tls",
+    "tokio1-rustls-tls",
+    "builder",
+    "tokio1",
+] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+
+# Auth
+argon2 = "0.5"
+rand = "0.8"
+
+# PDF
+printpdf = "0.7"
+
+# Env config
+dotenvy = "0.15"
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]

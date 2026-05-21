@@ -1,0 +1,22 @@
+node_modules
+dist
+.vite
+*.log
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+
+# Netlify
+.netlify
+
+# Rust / Tauri
+src-tauri/target
+src-tauri/Cargo.lock
+src-tauri/gen
+
+# Editor
+.vscode
+.idea
+.DS_Store
