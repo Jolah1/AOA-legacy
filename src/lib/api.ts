@@ -114,57 +114,6 @@ const FALLBACK_PROJECTS: Project[] = [
     ],
   },
   {
-    id: "surveyor-general",
-    title: "Office of Surveyor General",
-    location: "Nigeria",
-    category: "Government",
-    duration: "14 Months",
-    size: "2-Storey Building",
-    completion: "July 2025",
-    image: "/projects/IMG_9591.jpeg",
-    summary:
-      "Government facility built to the highest standards of structural integrity and functional performance.",
-    highlights: [
-      "Innovative sequencing to accelerate timeline while maintaining quality.",
-      "Strong client feedback throughout the build.",
-    ],
-  },
-  {
-    id: "banana-island",
-    title: "Residential Apartment, Banana Island",
-    location: "Lagos, Nigeria",
-    category: "Residential",
-    duration: "18 Months",
-    size: "3-Storey Building",
-    completion: "March 2025",
-    image: "/projects/IMG_9587.jpeg",
-    summary:
-      "Luxury residential development in prestigious Banana Island, Lagos. End-to-end delivery from design through finishing.",
-    highlights: [
-      "Full compliance with estate regulations and Lagos State building codes.",
-      "Smart home automation, premium fittings, marble flooring, soundproof glazing.",
-      "Optimized space planning and sustainable design elements.",
-      "Supervised every phase from foundation to roofing and finishing.",
-    ],
-  },
-  {
-    id: "pg-plant",
-    title: "Procter & Gamble Plant Upgrade",
-    location: "Nigeria",
-    category: "Industrial",
-    duration: "14 Months",
-    size: "15,000 sqm",
-    completion: "June 2018",
-    image: "/projects/IMG_9586.jpeg",
-    summary:
-      "Primary liaison between P&G executives, engineering consultants, contractors, and regulatory agencies.",
-    highlights: [
-      "100% compliance with P&G global safety and environmental standards.",
-      "Delivered on time and within budget.",
-      "Enhanced plant operational capacity and efficiency.",
-    ],
-  },
-  {
     id: "infra-1",
     title: "Mixed-Use Development",
     location: "Lagos, Nigeria",
