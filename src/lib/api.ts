@@ -210,9 +210,9 @@ const FALLBACK_PROJECTS: Project[] = [
   },
   {
     id: "residential-3",
-    title: "Residential Renovation",
+    title: "Commercial Building",
     location: "Lagos, Nigeria",
-    category: "Residential",
+    category: "Commercial",
     duration: "6 Months",
     size: "Whole-House",
     completion: "2022",
