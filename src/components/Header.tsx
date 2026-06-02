@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTheme } from "../hooks/useTheme";
 
 const NAV_LINKS = [
@@ -44,8 +45,10 @@ export function Header(_props: { onOpenAdmin?: () => void }) {
   const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const firstDrawerLinkRef = useRef<HTMLAnchorElement | null>(null);
+  const drawerRef = useRef<HTMLDivElement | null>(null);
 
-  // Track which section is in view for nav highlighting.
   useEffect(() => {
     const sections = NAV_LINKS.map((l) => document.querySelector(l.href)).filter(
       (el): el is Element => el !== null,
@@ -62,78 +65,123 @@ export function Header(_props: { onOpenAdmin?: () => void }) {
     return () => obs.disconnect();
   }, []);
 
-  // Close mobile drawer on Escape or on link click.
   useEffect(() => {
+    const el = drawerRef.current;
+    if (el) {
+      if (open) el.removeAttribute("inert");
+      else el.setAttribute("inert", "");
+    }
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
     };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const id = window.setTimeout(() => firstDrawerLinkRef.current?.focus(), 0);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+      window.clearTimeout(id);
+    };
   }, [open]);
 
+  const closeDrawer = () => setOpen(false);
+
   return (
-    <header className="site-header" role="banner">
-      <div className="container header-inner">
-        <a href="#top" className="brand" aria-label="AOA Legacy Concepts home">
-          <span className="brand-mark" aria-hidden="true">AOA</span>
-          <span className="brand-name">
-            AOA Legacy <small>Concepts</small>
-          </span>
-        </a>
+    <>
+      <header className="site-header" role="banner">
+        <div className="container header-inner">
+          <a href="#top" className="brand" aria-label="AOA Legacy Concepts home">
+            <span className="brand-mark" aria-hidden="true">AOA</span>
+            <span className="brand-name">
+              AOA Legacy <small>Concepts</small>
+            </span>
+          </a>
 
-        <nav className="nav" aria-label="Primary">
-          {NAV_LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              aria-current={active === l.href ? "true" : undefined}
+          <nav className="nav" aria-label="Primary">
+            {NAV_LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                aria-current={active === l.href ? "true" : undefined}
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="header-actions">
+            <button
+              type="button"
+              className="theme-toggle"
+              onClick={toggle}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
             >
-              {l.label}
+              {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+            </button>
+            <a href="#contact" className="btn btn--accent header-cta">
+              Start a project
             </a>
-          ))}
-        </nav>
-
-        <div className="header-actions">
-          <button
-            type="button"
-            className="theme-toggle"
-            onClick={toggle}
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-          >
-            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-          </button>
-          <a href="#contact" className="btn btn--accent header-cta">
-            Start a project
-          </a>
-          <button
-            type="button"
-            className="menu-toggle"
-            aria-label="Toggle menu"
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((v) => !v)}
-          >
-            <MenuIcon open={open} />
-          </button>
+            <button
+              ref={menuButtonRef}
+              type="button"
+              className="menu-toggle"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              onClick={() => setOpen((v) => !v)}
+            >
+              <MenuIcon open={open} />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      <div id="mobile-nav" className="mobile-nav" data-open={open} aria-label="Mobile">
-        {NAV_LINKS.map((l) => (
-          <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
-            {l.label}
-          </a>
-        ))}
-        <a
-          href="#contact"
-          className="btn btn--accent"
-          style={{ marginTop: 8 }}
-          onClick={() => setOpen(false)}
-        >
-          Start a project
-        </a>
-      </div>
-    </header>
+      {createPortal(
+        <>
+          <div
+            className="mobile-nav-backdrop"
+            data-open={open}
+            aria-hidden="true"
+            onClick={closeDrawer}
+          />
+          <div
+            ref={drawerRef}
+            id="mobile-nav"
+            className="mobile-nav"
+            data-open={open}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site menu"
+            aria-hidden={!open}
+          >
+            <nav aria-label="Mobile primary">
+              {NAV_LINKS.map((l, i) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  ref={i === 0 ? firstDrawerLinkRef : undefined}
+                  onClick={closeDrawer}
+                >
+                  {l.label}
+                </a>
+              ))}
+            </nav>
+            <a
+              href="#contact"
+              className="btn btn--accent mobile-nav-cta"
+              onClick={closeDrawer}
+            >
+              Start a project
+            </a>
+          </div>
+        </>,
+        document.body,
+      )}
+    </>
   );
 }

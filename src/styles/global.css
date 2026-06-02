@@ -390,9 +390,10 @@ select {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-@media (max-width: 380px) {
+@media (max-width: 480px) {
   .brand-name small { display: none; }
   .brand-name { font-size: var(--fs-base); }
+  .brand-mark { width: 32px; height: 32px; font-size: 12px; }
 }
 
 .nav {
@@ -438,8 +439,8 @@ select {
   gap: 8px;
   flex-shrink: 0;
 }
-@media (max-width: 380px) {
-  .header-actions { gap: 4px; }
+@media (max-width: 480px) {
+  .header-actions { gap: 6px; }
 }
 
 .theme-toggle {
@@ -474,17 +475,37 @@ select {
   .menu-toggle { display: none; }
 }
 
-/* Mobile drawer */
+/* Mobile drawer (portaled to body to escape header's containing block) */
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: rgba(8, 13, 24, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease);
+}
+.mobile-nav-backdrop[data-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
 .mobile-nav {
   position: fixed;
-  inset: var(--header-h) 0 0 0;
-  z-index: 40;
-  background: var(--bg-elev);
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 80;
+  background-color: var(--bg-elev);
   border-top: 1px solid var(--border);
-  padding: var(--space-5) var(--space-4);
+  padding: var(--space-5) var(--space-4)
+    max(var(--space-5), env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   transform: translateY(-8px);
   opacity: 0;
   pointer-events: none;
@@ -495,6 +516,11 @@ select {
   transform: none;
   pointer-events: auto;
 }
+.mobile-nav nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
 .mobile-nav a {
   padding: 14px 12px;
   border-radius: var(--r-md);
@@ -502,9 +528,12 @@ select {
   color: var(--text);
   text-decoration: none;
 }
-.mobile-nav a:hover { background: var(--bg-soft); }
+html[data-theme="dark"] .mobile-nav a:not(.btn) { color: var(--text); }
+.mobile-nav a:hover { background: var(--bg-soft); text-decoration: none; }
+.mobile-nav-cta { margin-top: var(--space-3); }
 @media (min-width: 900px) {
-  .mobile-nav { display: none; }
+  .mobile-nav,
+  .mobile-nav-backdrop { display: none; }
 }
 
 /* ========== Hero ========== */

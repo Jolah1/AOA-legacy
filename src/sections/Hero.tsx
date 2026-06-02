@@ -47,6 +47,9 @@ export function Hero({ company }: { company: CompanyInfo | null }) {
             alt=""
             loading="eager"
             decoding="async"
+            fetchPriority="high"
+            width="800"
+            height="1000"
           />
           <span className="hero-badge">On-site &amp; on-schedule</span>
         </div>
