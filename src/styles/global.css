@@ -352,58 +352,36 @@ select {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: var(--text);
   text-decoration: none;
   min-width: 0;
   flex-shrink: 1;
+  border-radius: 8px;
 }
 .brand:hover { text-decoration: none; }
-.brand-mark {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  border-radius: 9px;
-  background: linear-gradient(135deg, var(--brand-navy), var(--brand-navy-2));
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
-}
-.brand-mark img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.brand-lockup,
+.brand-mark-img {
   display: block;
+  height: 44px;
+  width: auto;
+  border-radius: 6px;
 }
-html[data-theme="dark"] .brand-mark {
-  background: transparent;
-  box-shadow: none;
+html[data-theme="dark"] .brand-lockup,
+html[data-theme="dark"] .brand-mark-img {
+  border-radius: 6px;
 }
-html[data-theme="dark"] .brand-mark img {
-  mix-blend-mode: hard-light;
+@media (min-width: 1024px) {
+  .brand-lockup,
+  .brand-mark-img { height: 52px; }
 }
-.brand-name {
-  font-size: var(--fs-md);
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.brand-name small {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-@media (max-width: 480px) {
-  .brand-name small { display: none; }
-  .brand-name { font-size: var(--fs-base); }
-  .brand-mark { width: 36px; height: 36px; }
+.brand-mark-img { display: none; }
+@media (max-width: 599px) {
+  .brand-lockup { display: none; }
+  .brand-mark-img {
+    display: block;
+    height: 40px;
+    width: 40px;
+    border-radius: 9px;
+  }
 }
 
 .nav {
@@ -1004,6 +982,15 @@ html[data-theme="dark"] .value h4 { color: var(--brand-gold-2); }
   background: var(--brand-navy);
   color: rgba(255,255,255,0.78);
   padding-block: var(--space-7) var(--space-5);
+}
+.footer-logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 280px;
+  max-height: 240px;
+  margin-bottom: var(--space-4);
+  border-radius: var(--r-md);
 }
 .footer-grid {
   display: grid;

@@ -13,7 +13,15 @@ export function Footer({
       <div className="container">
         <div className="footer-grid">
           <div>
-            <h4>{company?.name ?? "AOA Legacy Concepts"}</h4>
+            <img
+              src="/aoa-logo.png"
+              alt={`${company?.name ?? "AOA Legacy Concepts"} logo`}
+              width="720"
+              height="610"
+              loading="lazy"
+              decoding="async"
+              className="footer-logo"
+            />
             <p style={{ maxWidth: "44ch" }}>
               {company?.tagline ??
                 "Building lasting value across commercial, residential, and infrastructure projects."}

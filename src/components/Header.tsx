@@ -96,12 +96,22 @@ export function Header(_props: { onOpenAdmin?: () => void }) {
       <header className="site-header" role="banner">
         <div className="container header-inner">
           <a href="#top" className="brand" aria-label="AOA Legacy Concepts home">
-            <span className="brand-mark" aria-hidden="true">
-              <img src="/aoa-mark.png" alt="" width="128" height="128" />
-            </span>
-            <span className="brand-name">
-              AOA Legacy <small>Concepts</small>
-            </span>
+            <img
+              className="brand-lockup"
+              src="/aoa-lockup.png"
+              alt="AOA Legacy Concepts"
+              width="720"
+              height="400"
+              fetchPriority="high"
+            />
+            <img
+              className="brand-mark-img"
+              src="/aoa-mark.png"
+              alt="AOA Legacy Concepts"
+              width="128"
+              height="128"
+              fetchPriority="high"
+            />
           </a>
 
           <nav className="nav" aria-label="Primary">
