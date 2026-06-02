@@ -11,7 +11,7 @@
  *   SMTP_PORT         (default: 587)
  *   SMTP_USER         your Gmail address
  *   SMTP_PASS         a Gmail "App Password" (NOT your account password)
- *   MAIL_TO           recipient (default: aolanrewaju.akanbi@gmail.com)
+ *   MAIL_TO           recipient (default: aoalegacyconcepts@gmail.com)
  *   MAIL_FROM         from address (default: SMTP_USER)
  *   MAIL_FROM_NAME    optional display name
  */
@@ -86,7 +86,7 @@ export const handler: Handler = async (event) => {
     SMTP_PORT = "587",
     SMTP_USER,
     SMTP_PASS,
-    MAIL_TO = "aolanrewaju.akanbi@gmail.com",
+    MAIL_TO = "aoalegacyconcepts@gmail.com",
     MAIL_FROM,
     MAIL_FROM_NAME,
   } = process.env;

@@ -41,8 +41,8 @@ export function Footer({
             <h4>Contact</h4>
             <ul>
               <li>
-                <a href={`mailto:${company?.email ?? "aolanrewaju.akanbi@gmail.com"}`}>
-                  {company?.email ?? "aolanrewaju.akanbi@gmail.com"}
+                <a href={`mailto:${company?.email ?? "aoalegacyconcepts@gmail.com"}`}>
+                  {company?.email ?? "aoalegacyconcepts@gmail.com"}
                 </a>
               </li>
               <li>

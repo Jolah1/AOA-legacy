@@ -69,7 +69,7 @@ const FALLBACK_COMPANY: CompanyInfo = {
   name: "AOA Legacy Concepts",
   tagline:
     "Building lasting value across commercial, residential, and infrastructure projects.",
-  email: "aolanrewaju.akanbi@gmail.com",
+  email: "aoalegacyconcepts@gmail.com",
   phone: "+234 706 099 6703",
   location: "Lagos, Nigeria",
   founded_year: 2014,

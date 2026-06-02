@@ -280,7 +280,7 @@ fn render_pdf(inv: &Invoice, out_path: &std::path::Path) -> AppResult<()> {
         &regular,
     );
     layer.use_text(
-        "Lagos, Nigeria  ·  aolanrewaju.akanbi@gmail.com  ·  +234 706 099 6703",
+        "Lagos, Nigeria  ·  aoalegacyconcepts@gmail.com  ·  +234 706 099 6703",
         9.0,
         Mm(20.0),
         Mm(264.0),

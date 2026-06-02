@@ -102,8 +102,8 @@ export function Contact({ company }: Props) {
                   </div>
                   <div>
                     <strong>Email</strong>
-                    <a href={`mailto:${company?.email ?? "aolanrewaju.akanbi@gmail.com"}`}>
-                      {company?.email ?? "aolanrewaju.akanbi@gmail.com"}
+                    <a href={`mailto:${company?.email ?? "aoalegacyconcepts@gmail.com"}`}>
+                      {company?.email ?? "aoalegacyconcepts@gmail.com"}
                     </a>
                   </div>
                 </div>

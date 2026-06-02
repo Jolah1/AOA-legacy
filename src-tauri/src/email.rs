@@ -8,7 +8,7 @@
 //!   SMTP_USER       required to enable sending
 //!   SMTP_PASS       required to enable sending (Gmail App Password)
 //!   MAIL_FROM       defaults to SMTP_USER
-//!   MAIL_TO         defaults to "aolanrewaju.akanbi@gmail.com"
+//!   MAIL_TO         defaults to "aoalegacyconcepts@gmail.com"
 //!   MAIL_FROM_NAME  optional display name
 //!
 //! If `SMTP_USER` / `SMTP_PASS` are not set we treat email as disabled
@@ -52,7 +52,7 @@ impl MailerConfig {
         let from_addr = env::var("MAIL_FROM").unwrap_or_else(|_| user.clone());
         let from_name = env::var("MAIL_FROM_NAME").ok();
         let to_addr =
-            env::var("MAIL_TO").unwrap_or_else(|_| "aolanrewaju.akanbi@gmail.com".into());
+            env::var("MAIL_TO").unwrap_or_else(|_| "aoalegacyconcepts@gmail.com".into());
 
         let from: Mailbox = match from_name {
             Some(name) => format!("{name} <{from_addr}>").parse(),

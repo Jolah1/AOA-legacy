@@ -204,9 +204,9 @@ Add these in **Site settings → Environment variables**:
 
 | Name             | Value                                         |
 | ---------------- | --------------------------------------------- |
-| `SMTP_USER`      | `aolanrewaju.akanbi@gmail.com`                |
+| `SMTP_USER`      | `aoalegacyconcepts@gmail.com`                |
 | `SMTP_PASS`      | Your Google App Password (16 chars, no spaces)|
-| `MAIL_TO`        | `aolanrewaju.akanbi@gmail.com`                |
+| `MAIL_TO`        | `aoalegacyconcepts@gmail.com`                |
 | `MAIL_FROM_NAME` | `AOA Legacy Concepts` (optional)              |
 
 Then **Deploys → Trigger deploy → Deploy site** so the function picks up
