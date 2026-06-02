@@ -97,23 +97,6 @@ const FALLBACK_PROJECTS: Project[] = [
     ],
   },
   {
-    id: "egis",
-    title: "EGIS Office Building",
-    location: "Lagos, Nigeria",
-    category: "Commercial",
-    duration: "24 Months",
-    size: "4-Storey Building",
-    completion: "November 2025",
-    image: "/projects/IMG_9593.jpeg",
-    summary:
-      "Upscale commercial development featuring high-end finishes, smart office technology, and sustainable design.",
-    highlights: [
-      "Coordinating 25+ subcontractors on a constrained urban site.",
-      "Successfully navigating permit challenges and stakeholder relations.",
-      "Innovative construction techniques for energy efficiency.",
-    ],
-  },
-  {
     id: "infra-1",
     title: "Mixed-Use Development",
     location: "Lagos, Nigeria",
