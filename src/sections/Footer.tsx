@@ -14,10 +14,10 @@ export function Footer({
         <div className="footer-grid">
           <div>
             <img
-              src="/aoa-logo.png"
+              src="/aoa-logo.jpg"
               alt={`${company?.name ?? "AOA Legacy Concepts"} logo`}
-              width="720"
-              height="610"
+              width="1200"
+              height="1200"
               loading="lazy"
               decoding="async"
               className="footer-logo"

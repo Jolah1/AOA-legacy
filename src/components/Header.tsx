@@ -98,18 +98,18 @@ export function Header(_props: { onOpenAdmin?: () => void }) {
           <a href="#top" className="brand" aria-label="AOA Legacy Concepts home">
             <img
               className="brand-lockup"
-              src="/aoa-lockup.png"
+              src="/aoa-lockup.jpg"
               alt="AOA Legacy Concepts"
-              width="720"
-              height="400"
+              width="800"
+              height="800"
               fetchPriority="high"
             />
             <img
               className="brand-mark-img"
-              src="/aoa-mark.png"
+              src="/aoa-mark.jpg"
               alt="AOA Legacy Concepts"
-              width="128"
-              height="128"
+              width="320"
+              height="320"
               fetchPriority="high"
             />
           </a>
