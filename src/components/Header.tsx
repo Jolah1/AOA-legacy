@@ -94,7 +94,7 @@ export function Header(_props: { onOpenAdmin?: () => void }) {
           ))}
         </nav>
 
-        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+        <div className="header-actions">
           <button
             type="button"
             className="theme-toggle"
