@@ -5,6 +5,7 @@ import { useTheme } from "../hooks/useTheme";
 const NAV_LINKS = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
+  { href: "#facilities", label: "Facilities" },
   { href: "#projects", label: "Projects" },
   { href: "#team", label: "Team" },
   { href: "#contact", label: "Contact" },

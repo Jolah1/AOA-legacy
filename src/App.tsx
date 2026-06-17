@@ -3,6 +3,7 @@ import { Header } from "./components/Header";
 import { Hero } from "./sections/Hero";
 import { About } from "./sections/About";
 import { Services } from "./sections/Services";
+import { Facilities } from "./sections/Facilities";
 import { Projects } from "./sections/Projects";
 import { Team } from "./sections/Team";
 import { Contact } from "./sections/Contact";
@@ -78,6 +79,7 @@ export default function App() {
         <Hero company={company} />
         <About />
         <Services />
+        <Facilities />
         {loadError && (
           <div
             className="container"

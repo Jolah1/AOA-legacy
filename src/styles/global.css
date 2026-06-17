@@ -712,6 +712,13 @@ html[data-theme="dark"] .value h4 { color: var(--brand-gold-2); }
   font-size: var(--fs-sm);
 }
 .service ul li { margin-bottom: 4px; }
+.service p { color: var(--text-muted); font-size: var(--fs-sm); margin: 0 0 var(--space-2); }
+.facility-location {
+  font-weight: 600;
+  color: var(--brand-navy);
+  font-size: var(--fs-sm);
+}
+html[data-theme="dark"] .facility-location { color: var(--brand-gold-2); }
 
 /* ========== Projects ========== */
 .filter-bar {
